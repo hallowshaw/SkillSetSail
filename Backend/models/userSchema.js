@@ -37,3 +37,24 @@ const userSchema = new mongoose.Schema({
 })
 
 
+//HASHING THE PASSWORD
+userSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) {
+        next();
+    }
+    this.password = await bcrpyt.hash(this.password, 10);
+});
+
+//COMPARING PASSWORD
+userSchema.methods.comparePassword = async function (enterdPassword) {
+    return await bcrpyt.compare(enterdPassword, this.password)
+}
+
+//GENERATING A JWT TOKEN WHEN A USER REGISTERS OR LOGINS, IT DEPENDS ON OUR CODE THAT WHEN DO WE NEED TO GENERATE THE JWT TOKEN WHEN THE USER LOGIN OR REGISTER OR FOR BOTH. 
+userSchema.methods.getJWTToken = function () {
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
+        expiresIn: process.env.JWT_EXPIRE,
+    });
+};
+
+export const User = mongoose.model("User", userSchema)
