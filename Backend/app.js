@@ -9,6 +9,7 @@ import jobRouter from './routes/jobRouter.js'
 import applicationRouter from './routes/applicationRouter.js'
 
 import { dbConnection } from "./database/dbConnection.js";
+import { errorMiddleware } from "./middleware/error.js";
 
 
 
@@ -39,6 +40,8 @@ app.use('/api/v1/job', applicationRouter)
 
 
 dbConnection();
+
+app.use(errorMiddleware)
 
 
 export default app;
