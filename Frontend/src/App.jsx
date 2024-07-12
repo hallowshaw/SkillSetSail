@@ -18,6 +18,24 @@ import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = axios.get(
+          "http://localhost:4000/api/v1/user/getuser",
+          { withCredentials: true }
+        );
+        setUser(response.data.user);
+        setIsAuthorized(true);
+      } catch (error) {
+        setIsAuthorized(false);
+      }
+    };
+    fetchUser();
+  }, [isAuthorized]);
+
   return (
     <>
       <Router>
