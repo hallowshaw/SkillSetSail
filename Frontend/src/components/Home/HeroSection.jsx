@@ -1,7 +1,7 @@
 import React from "react";
 import { FaBuilding, FaSuitcase, FaUsers, FaUserPlus } from "react-icons/fa";
 
-const HeroSection = () => {
+function HeroSection() {
   const details = [
     {
       id: 1,
@@ -61,6 +61,6 @@ const HeroSection = () => {
       </div>
     </>
   );
-};
+}
 
 export default HeroSection;

@@ -2,7 +2,7 @@ import React from "react";
 import { FaMicrosoft, FaApple } from "react-icons/fa";
 import { SiTesla } from "react-icons/si";
 
-const PopularCompanies = () => {
+function PopularCompanies() {
   const companies = [
     {
       id: 1,
@@ -49,6 +49,6 @@ const PopularCompanies = () => {
       </div>
     </div>
   );
-};
+}
 
 export default PopularCompanies;

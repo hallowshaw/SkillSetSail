@@ -7,7 +7,7 @@ import HowItWorks from "./HowItWorks";
 import PopularCategories from "./PopularCategories";
 import PopularCompanies from "./PopularCompanies";
 
-const Home = () => {
+function Home() {
   const { isAuthorized } = useContext(Context);
   if (!isAuthorized) {
     return <Navigate to={"/login"} />;
@@ -22,6 +22,6 @@ const Home = () => {
       </section>
     </>
   );
-};
+}
 
 export default Home;
