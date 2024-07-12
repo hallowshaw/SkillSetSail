@@ -7,7 +7,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
 
-const Login = () => {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
@@ -97,6 +97,6 @@ const Login = () => {
       </section>
     </>
   );
-};
+}
 
 export default Login;

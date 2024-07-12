@@ -9,7 +9,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
 
-const Register = () => {
+function Register() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -126,6 +126,6 @@ const Register = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Register;
