@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../../main";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -64,10 +64,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </>
-          ) : (
-            <></>
-          )}
-
+          ) : null}
           <button onClick={handleLogout}>LOGOUT</button>
         </ul>
         <div className="hamburger">

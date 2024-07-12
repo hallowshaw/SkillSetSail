@@ -18,23 +18,26 @@ import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
+  const { isAuthorized, setUser } = useContext(Context);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = axios.get(
+        const response = await axios.get(
           "http://localhost:4000/api/v1/user/getuser",
           { withCredentials: true }
         );
         setUser(response.data.user);
-        setIsAuthorized(true);
       } catch (error) {
-        setIsAuthorized(false);
+        console.error("Error fetching user:", error);
+        setUser(null); // Clear user state on error
       }
     };
-    fetchUser();
-  }, [isAuthorized]);
+
+    if (isAuthorized) {
+      fetchUser();
+    }
+  }, [isAuthorized, setUser]);
 
   return (
     <>
@@ -49,7 +52,7 @@ function App() {
           <Route path="/job/post" element={<PostJobs />} />
           <Route path="/job/me" element={<MyJobs />} />
           <Route path="/application/:id" element={<Application />} />
-          <Route path="/application/me" element={<MyApplications />} />
+          <Route path="/applications/me" element={<MyApplications />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
