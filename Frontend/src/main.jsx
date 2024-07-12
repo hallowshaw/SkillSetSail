@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client"; // Import from react-dom/client
 import App from "./App.jsx";
 import axios from "axios";
 
@@ -34,7 +34,9 @@ const AppWrapper = () => {
   );
 };
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const container = document.getElementById("root");
+const root = createRoot(container); // Create the root
+root.render(
   <React.StrictMode>
     <AppWrapper />
   </React.StrictMode>
