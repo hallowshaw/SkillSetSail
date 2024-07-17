@@ -67,7 +67,7 @@ function Navbar() {
               </li>
             </>
           ) : null}
-          <button onClick={handleLogout}>LOGOUT</button>
+          <button onClick={handleLogout}>Logout</button>
         </ul>
         <div className="hamburger">
           <GiHamburgerMenu onClick={() => setShow(!show)} />

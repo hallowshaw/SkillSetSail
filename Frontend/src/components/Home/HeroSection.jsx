@@ -33,8 +33,11 @@ function HeroSection() {
       <div className="heroSection">
         <div className="container">
           <div className="title">
-            <h1>Find a job that suits</h1>
-            <h1>your interests and skills</h1>
+            <h2>
+              Your Perfect <span style={{ color: "#fbb02e" }}>JOB </span>Awaits:
+              Aligning <span style={{ color: "#fbb02e" }}>PASSION </span> with
+              <span style={{ color: "#fbb02e" }}> PROFESSION </span>
+            </h2>
             <p>
               Unlock Your Career Potential: Connecting Talented Professionals
               with Ideal Job Opportunities. Your Future Starts Here!
