@@ -425,11 +425,25 @@ p {
     max-width: 350px;
     min-width: 350px;
   }
+  .heroSection .container .image {
+    height: auto;
+    margin-top: auto;
+  }
+  .heroSection .container .title {
+    margin-top: 200px;
+  }
 }
 @media (max-width: 400px) {
   .heroSection .details .card {
     min-width: 100%;
     max-width: 100%;
+  }
+  .heroSection .container .image {
+    height: auto;
+    margin-top: auto;
+  }
+  .heroSection .container .title {
+    margin-top: 200px;
   }
 }
 
@@ -1448,14 +1462,67 @@ nav .hamburger {
   padding: 7px 30px;
   background: transparent;
   border: 1px solid #184235;
-  color: #184235;
+  color: #03132d;
   text-decoration: none;
+  transition: all 0.5s ease;
 }
 .notfound .content a:hover {
-  background: #184235;
+  background: #03132d;
   transition: all 0.3s;
   color: #f1f3f6;
 }
+
+@media (max-width: 1200px) {
+  .notfound .content a {
+    font-size: 18px;
+    padding: 6px 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  .notfound .content a {
+    font-size: 16px;
+    padding: 5px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .notfound {
+    min-height: 770px;
+  }
+  .notfound .content a {
+    font-size: 14px;
+    padding: 5px 18px;
+  }
+  .notfound .content img {
+    height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .notfound {
+    min-height: 820px;
+  }
+  .notfound .content a {
+    font-size: 12px;
+    padding: 4px 15px;
+  }
+  .notfound .content img {
+    height: 200px;
+    margin-top: 200px;
+  }
+}
+
+@media (max-width: 400px) {
+  .notfound {
+    min-height: 730px;
+  }
+  .notfound .content a {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+}
+
 .resume-modal {
   width: 100%;
   display: flex;
