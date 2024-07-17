@@ -1149,8 +1149,8 @@ p {
   }
 }
 nav {
-  background: #18191c;
-  padding: 0 20px;
+  background: #03132d;
+  padding: 0 5px;
 }
 nav .container {
   max-width: 1500px;
@@ -1160,12 +1160,13 @@ nav .container {
   justify-content: space-between;
 }
 nav .container .logo {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
 }
 nav .container .logo img {
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 nav .menu {
   display: flex;
@@ -1197,7 +1198,7 @@ nav .menu li a {
   position: relative;
 }
 nav .menu li a:hover {
-  color: #2d5649;
+  color: #afaad1;
   transition: all 0.3s;
 }
 nav .menu li a::before {

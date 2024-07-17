@@ -31,7 +31,9 @@ function Navbar() {
     <nav className={isAuthorized ? "navbarShow" : "navbarHide"}>
       <div className="container">
         <div className="logo">
-          <img src="/SkillSetSail Main Logo.png" alt="logo" />
+          <Link to="/">
+            <img src="/SkillSetSail Main Logo.png" alt="logo" />
+          </Link>
         </div>
         <ul className={!show ? "menu" : "show-menu menu"}>
           <li>
