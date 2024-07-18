@@ -1,6 +1,6 @@
 # Skill Set Sail
 
-![Skillset Logo](Frontend/public/Favicon.png)
+<img src="Frontend/public/SkillSetSailGithub.png" alt="SkillSetSail Logo" width="200"/>
 
 Skill Set Sail is a comprehensive MERN stack application designed to facilitate job seeking and recruitment processes with an intuitive and user-friendly interface.
 
