@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="Frontend/public/SkillSetSailGithub.png" alt="SkillSetSail Logo" width="300"/>
-</p>
+
 
 <h1 >Skill Set Sail</h1>
 
