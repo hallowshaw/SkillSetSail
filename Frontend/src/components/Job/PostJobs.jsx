@@ -3,6 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../main";
+import { ClipLoader } from "react-spinners";
 
 const PostJobs = () => {
   const [title, setTitle] = useState("");
@@ -15,6 +16,7 @@ const PostJobs = () => {
   const [salaryTo, setSalaryTo] = useState("");
   const [fixedSalary, setFixedSalary] = useState("");
   const [salaryType, setSalaryType] = useState("default");
+  const [loading, setLoading] = useState(false);
 
   const { isAuthorized, user } = useContext(Context);
   const navigate = useNavigate();
@@ -27,9 +29,10 @@ const PostJobs = () => {
 
   const handleJobPost = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (salaryType === "Fixed Salary") {
       setSalaryFrom("");
-      setSalaryFrom("");
+      setSalaryTo("");
     } else if (salaryType === "Ranged Salary") {
       setFixedSalary("");
     } else {
@@ -69,14 +72,32 @@ const PostJobs = () => {
       )
       .then((res) => {
         toast.success(res.data.message);
+        setTitle("");
+        setDescription("");
+        setCategory("");
+        setCountry("");
+        setCity("");
+        setLocation("");
+        setSalaryFrom("");
+        setSalaryTo("");
+        setFixedSalary("");
+        setSalaryType("default");
       })
       .catch((err) => {
         toast.error(err.response.data.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   return (
     <div className="job_post page">
+      {loading && (
+        <div className="loader-overlay">
+          <ClipLoader size={50} color={"#123abc"} loading={loading} />
+        </div>
+      )}
       <div className="container">
         <h3>POST NEW JOB</h3>
         <form onSubmit={handleJobPost}>
@@ -179,7 +200,9 @@ const PostJobs = () => {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Job Description"
           />
-          <button type="submit">Create Job</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Submitting..." : "Create Job"}
+          </button>
         </form>
       </div>
     </div>

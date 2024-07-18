@@ -3,6 +3,8 @@ import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "../../main";
+import { ClipLoader } from "react-spinners";
+
 const Application = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -10,6 +12,7 @@ const Application = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [resume, setResume] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const { isAuthorized, user } = useContext(Context);
 
@@ -24,6 +27,7 @@ const Application = () => {
   const { id } = useParams();
   const handleApplication = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
     formData.append("name", name);
     formData.append("email", email);
@@ -49,11 +53,13 @@ const Application = () => {
       setCoverLetter("");
       setPhone("");
       setAddress("");
-      setResume("");
+      setResume(null);
       toast.success(data.message);
       navigateTo("/job/getall");
     } catch (error) {
       toast.error(error.response.data.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -63,6 +69,11 @@ const Application = () => {
 
   return (
     <section className="application">
+      {loading && (
+        <div className="loader-overlay">
+          <ClipLoader size={50} color={"#123abc"} loading={loading} />
+        </div>
+      )}
       <div className="container">
         <h3>Application Form</h3>
         <form onSubmit={handleApplication}>
@@ -108,7 +119,9 @@ const Application = () => {
               style={{ width: "100%" }}
             />
           </div>
-          <button type="submit">Send Application</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Submitting..." : "Send Application"}
+          </button>
         </form>
       </div>
     </section>
