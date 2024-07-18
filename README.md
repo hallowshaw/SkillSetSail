@@ -164,7 +164,8 @@ By following these guidelines, you contribute to maintaining a high standard of 
 
 
 ##
-Thank you for contributing to Skill Set Sail! Your efforts help improve and grow the project for everyone.
+Thank you for setting sail with Skill Set Sail! Your contributions are like wind in our sails, propelling us forward and steering us toward excellence. Together, we chart a course to build something remarkable that benefits everyone involved. Let's navigate this journey together and make waves in the world of job seeking and recruitment. Fair winds and following seas!
+
 
 
 
